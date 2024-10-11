@@ -130,7 +130,14 @@ namespace uf_robot_hardware
         if (it != info_.hardware_parameters.end()) {
             add_gripper = (it->second == "True" || it->second == "true");
         }
-        
+
+        std::string gripper_action_ns = "xarm_gripper";
+        it = info_.hardware_parameters.find("gripper_action_ns");
+        if (it != info_.hardware_parameters.end()) {
+            gripper_action_ns = it->second;
+        }
+        node_->set_parameter(rclcpp::Parameter("gripper_action_ns", gripper_action_ns));
+
         if (robot_type == "lite") add_gripper = false;
         node_->set_parameter(rclcpp::Parameter("add_gripper", add_gripper));
 
