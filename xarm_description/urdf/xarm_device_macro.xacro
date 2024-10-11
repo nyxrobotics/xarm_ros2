@@ -7,6 +7,7 @@
     effort_control:=false 
     velocity_control:=false
     add_gripper:=false
+    gripper_action_ns:='xarm_gripper'
     add_vacuum_gripper:=false
     add_bio_gripper:=false
     dof:=7
@@ -199,6 +200,7 @@
           velocity_control="${velocity_control}" 
           ros2_control_plugin="${ros2_control_plugin}"
           add_gripper="${add_gripper}"
+          gripper_action_ns="${gripper_action_ns}"
           add_bio_gripper="${add_bio_gripper}"
           robot_ip="${robot_ip}"
           report_type="${report_type}"
